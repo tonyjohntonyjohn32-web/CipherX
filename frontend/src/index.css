@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-dark: #03030A;
+    --neon-violet: #A855F7;
+    --electric-purple: #C084FC;
+    --deep-indigo: #4F46E5;
+    --stem-inst: #38BDF8;
+    --stem-vocal: #EC4899;
+  }
+
+  body {
+    background-color: #03030A;
+    color: #F1F5F9;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+.font-orbitron {
+  font-family: 'Orbitron', monospace, sans-serif;
+}
+
+.font-rajdhani {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Neon Glows */
+.neon-glow-violet {
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.75), 0 0 25px rgba(168, 85, 247, 0.5), 0 0 45px rgba(79, 70, 229, 0.35);
+}
+
+.neon-glow-cyan {
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.75), 0 0 25px rgba(56, 189, 248, 0.45);
+}
+
+.neon-glow-pink {
+  text-shadow: 0 0 10px rgba(236, 72, 153, 0.75), 0 0 25px rgba(236, 72, 153, 0.45);
+}
+
+.neon-box-violet {
+  box-shadow: 0 0 20px -5px rgba(168, 85, 247, 0.4), 0 0 40px -10px rgba(79, 70, 229, 0.25);
+}
+
+.neon-box-cyan {
+  box-shadow: 0 0 20px -5px rgba(56, 189, 248, 0.4), 0 0 40px -10px rgba(14, 165, 233, 0.2);
+}
+
+.neon-box-pink {
+  box-shadow: 0 0 20px -5px rgba(236, 72, 153, 0.4), 0 0 40px -10px rgba(217, 70, 239, 0.2);
+}
+
+/* Glassmorphism panels */
+.glass-card {
+  background: rgba(13, 13, 31, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+.glass-card-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 25px -5px rgba(168, 85, 247, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #03030A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.6);
+}
+
+/* Subtle Animated Scanlines / Grid Background */
+.bg-cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(168, 85, 247, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Subtle pulsating animation for status indicators */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.6));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.95));
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s infinite ease-in-out;
+}
+
+/* Waveform bar animations */
+@keyframes wave-bounce {
+  0%, 100% {
+    height: 15%;
+  }
+  50% {
+    height: 95%;
+  }
+}
