@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { CipherXIntro } from './components/CipherXIntro';
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
@@ -16,6 +16,9 @@ const STORAGE_KEY = 'cipherx_jobs_history';
 
 export const App: React.FC = () => {
   const [introCompleted, setIntroCompleted] = useState<boolean>(false);
+  const handleIntroComplete = useCallback(() => {
+  setIntroCompleted(true);
+}, []);
   const [currentTab, setCurrentTab] = useState<'studio' | 'history' | 'settings'>('studio');
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const [health, setHealth] = useState<BackendHealth | null>(null);
@@ -145,7 +148,7 @@ export const App: React.FC = () => {
     <div className="min-h-screen bg-[#03030A] text-slate-100 flex flex-col relative selection:bg-purple-600 selection:text-white">
       {/* 2. Mandatory Fullscreen Cinematic Neon Intro */}
       {!introCompleted && (
-        <CipherXIntro onComplete={() => setIntroCompleted(true)} />
+       <CipherXIntro onComplete={handleIntroComplete} />
       )}
 
       {/* Main Application (fades in smoothly with subtle upward entrance) */}
